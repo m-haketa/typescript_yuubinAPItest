@@ -12,4 +12,6 @@ class YuubinAPI {
 }
 
 const A = new YuubinAPI()
-A.get('1000000')
+A.get('1000000').catch((err): void => {
+  console.error(err)
+})
