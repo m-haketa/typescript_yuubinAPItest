@@ -5,10 +5,9 @@ class YuubinAPI {
 
   public constructor() {}
 
-  public get(zipcode: string): void {
-    fetch(this.baseURL + '?zipcode=' + zipcode)
-      .then((res): void => res.text())
-      .then((body): void => console.log(body))
+  public async get(zipcode: string): Promise<void> {
+    const res = await fetch(this.baseURL + '?zipcode=' + zipcode)
+    console.log(await res.text())
   }
 }
 
