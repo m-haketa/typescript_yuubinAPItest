@@ -1,42 +1,16 @@
-import request from 'request'
+import fetch from 'node-fetch'
 
 class YuubinAPI {
   private baseURL = 'http://zipcloud.ibsnet.co.jp/api/search'
 
   public constructor() {}
 
-  public get(zipcode: string): Promise<string> {
-    const options = {
-      method: 'GET',
-      url: this.baseURL,
-      qs: { zipcode: zipcode }
-    }
-
-    return new Promise<string>(
-      (
-        resolve: (body?: string) => void,
-        reject: (error?: any) => void
-      ): void => {
-        request(options, function(
-          error,
-          response: request.Response,
-          body
-        ): void {
-          if (error) {
-            reject(error)
-          } else {
-            resolve(body)
-          }
-        })
-      }
-    )
+  public get(zipcode: string): void {
+    fetch(this.baseURL + '?zipcode=' + zipcode)
+      .then((res): void => res.text())
+      .then((body): void => console.log(body))
   }
 }
 
-async function main(): Promise<void> {
-  const A = new YuubinAPI()
-  const ret: string = await A.get('1000000')
-  console.log(ret)
-}
-
-main()
+const A = new YuubinAPI()
+A.get('1000000')
