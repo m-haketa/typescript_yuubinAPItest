@@ -1,0 +1,55 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "rules": {
+        "@typescript-eslint/adjacent-overload-signatures": "error",
+        "@typescript-eslint/indent": ["error", 2],
+        "@typescript-eslint/camelcase": "off",
+        "@typescript-eslint/no-namespace": "off",
+        "@typescript-eslint/member-delimiter-style": [ "error",
+            {
+                "multiline": {
+                    "delimiter": "none",
+                     "requireLast": false
+                },
+                "singleline": {
+                    "delimiter": "comma",
+                    "requireLast": false
+                },
+                "overrides": {
+                    "interface": {
+                        "multiline": {
+                            "delimiter": "none",
+                            "requireLast": true
+                        }
+                    }
+                }
+            }
+        ],
+            "prettier/prettier": [
+            "error",
+            {
+                "singleQuote": true,
+                "semi": false
+            }
+        ]
+    }
+}

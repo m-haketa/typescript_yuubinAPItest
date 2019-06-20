@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "module": "commonjs",
+        "target": "es3",
+        "declaration": true,
+        "strictNullChecks": true,
+        "baseUrl": ".",
+        "types": ["node"],
+        "typeRoots": ["node_modules/@types"],
+        "lib": ["esnext"],
+        "experimentalDecorators": true,
+        "paths": {
+            "*": ["@types/*"]
+        },
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "sourceMap": true
+    },
+    "include": ["./**/*"],
+    "exclude": ["node_modules"]
+}
