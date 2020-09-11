@@ -26,7 +26,7 @@
     "typescript": "^3.4.4"
   },
   "dependencies": {
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "request": "^2.88.0"
   }
 }
